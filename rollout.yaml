@@ -39,3 +39,8 @@ spec:
        steps:
        - setWeight: 20
        - pause: {}
+       canaryService: rollouts-demo-preview
+       stableService: rollouts-demo
+       trafficRouting:
+         istio:
+           virtualService:

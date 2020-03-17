@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: rollouts-demo
+spec:
+  gateways:
+  - rollouts-demo
+  hosts:
+  - rollouts-demo.apps.argoproj.io
+  http:
+  - route:
+    - destination:
+        host: rollouts-demo
+      weight: 100
+    - destination:
+        host: rollouts-demo-preview
+      weight: 0
