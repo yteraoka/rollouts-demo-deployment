@@ -7,7 +7,7 @@ spec:
     istio: ingressgateway
   servers:
   - hosts:
-    - rollouts-demo.apps.argoproj.io
+    - rollouts-demo.apps.local
     port:
       name: http
       number: 80

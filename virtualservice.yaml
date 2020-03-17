@@ -6,7 +6,7 @@ spec:
   gateways:
   - rollouts-demo
   hosts:
-  - rollouts-demo.apps.argoproj.io
+  - rollouts-demo.apps.local
   http:
   - name: primary
     route:
