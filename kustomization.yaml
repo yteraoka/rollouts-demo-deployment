@@ -4,8 +4,9 @@ kind: Kustomization
 resources:
 - rollout.yaml
 - service.yaml
-- ingress.yaml
+- gateway.yaml
 - preview-service.yaml
+- virtualservice.yaml
 images:
 - name: alexmt/rollouts-demo
   newTag: blue
