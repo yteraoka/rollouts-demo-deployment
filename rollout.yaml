@@ -44,3 +44,7 @@ spec:
        trafficRouting:
          istio:
            virtualService:
+             name: rollouts-demo
+             routes:
+               - rollouts-demo
+               - rollouts-demo-preview
