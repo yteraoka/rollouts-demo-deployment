@@ -35,16 +35,15 @@ spec:
 #     blueGreen:
 #       activeService: rollouts-demo
 #       previewService: rollouts-demo-preview
-     canary: 
-       steps:
-       - setWeight: 20
-       - pause: {}
-       canaryService: rollouts-demo-preview
-       stableService: rollouts-demo
-       trafficRouting:
-         istio:
-           virtualService:
-             name: rollouts-demo
-             routes:
-               - rollouts-demo
-               - rollouts-demo-preview
+    canary: 
+      steps:
+      - setWeight: 20
+      - pause: {}
+      canaryService: rollouts-demo-preview
+      stableService: rollouts-demo
+      trafficRouting:
+        istio:
+          virtualService:
+            name: rollouts-demo-vsvc
+            routes:
+              - primary
