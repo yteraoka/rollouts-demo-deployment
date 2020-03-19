@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: rollouts-canary-demo
+  name: rollouts-canary-demo-svc
   labels:
     app: rollouts-canary-demo
 spec:

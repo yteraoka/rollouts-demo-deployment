@@ -32,15 +32,12 @@ spec:
               path: /
               port: http
   strategy:
-#     blueGreen:
-#       activeService: rollouts-demo
-#       previewService: rollouts-demo-preview
     canary: 
       steps:
       - setWeight: 20
       - pause: {}
-      canaryService: rollouts-canary-demo-preview
-      stableService: rollouts-canary-demo
+      canaryService: rollouts-canary-demo-preview-svc
+      stableService: rollouts-canary-demo-svc
       trafficRouting:
         istio:
           virtualService:

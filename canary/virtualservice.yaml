@@ -4,15 +4,15 @@ metadata:
   name: rollouts-canary-demo-vsvc
 spec:
   gateways:
-  - rollouts-canary-demo
+  - rollouts-canary-demo-gw
   hosts:
   - rollouts-canary-demo.apps.local
   http:
   - name: primary
     route:
     - destination:
-        host: rollouts-canary-demo
+        host: rollouts-canary-demo-svc
       weight: 100
     - destination:
-        host: rollouts-canary-demo-preview
+        host: rollouts-canary-demo-preview-svc
       weight: 0
