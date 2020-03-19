@@ -1,18 +1,18 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: rollouts-canary-demo-vsvc
+  name: rollouts-bluegreen-demo-vsvc
 spec:
   gateways:
-  - rollouts-canary-demo
+  - rollouts-bluegreen-demo
   hosts:
-  - rollouts-canary-demo.apps.local
+  - rollouts-bluegreen-demo.apps.local
   http:
   - name: primary
     route:
     - destination:
-        host: rollouts-canary-demo
+        host: rollouts-bluegreen-demo
       weight: 100
     - destination:
-        host: rollouts-canary-demo-preview
+        host: rollouts-bluegreen-demo-preview
       weight: 0

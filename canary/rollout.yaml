@@ -2,22 +2,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: rollouts-demo
+  name: rollouts-canary-demo
   labels:
-    app: rollouts-demo
+    app: rollouts-canary-demo
 spec:
   replicas: 5
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: rollouts-demo
+      app: rollouts-canary-demo
   template:
     metadata:
       labels:
-        app: rollouts-demo
+        app: rollouts-canary-demo
     spec:
       containers:
-        - name: rollouts-demo
+        - name: rollouts-canary-demo
           image: "alexmt/rollouts-demo:latest"
           ports:
             - name: http
@@ -39,11 +39,11 @@ spec:
       steps:
       - setWeight: 20
       - pause: {}
-      canaryService: rollouts-demo-preview
-      stableService: rollouts-demo
+      canaryService: rollouts-canary-demo-preview
+      stableService: rollouts-canary-demo
       trafficRouting:
         istio:
           virtualService:
-            name: rollouts-demo-vsvc
+            name: rollouts-canary-demo-vsvc
             routes:
               - primary

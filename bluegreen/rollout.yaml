@@ -1,0 +1,37 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: rollouts-bluegreen-demo
+  labels:
+    app: rollouts-bluegreen-demo
+spec:
+  replicas: 5
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: rollouts-bluegreen-demo
+  template:
+    metadata:
+      labels:
+        app: rollouts-bluegreen-demo
+    spec:
+      containers:
+        - name: rollouts-bluegreen-demo
+          image: "alexmt/rollouts-demo:latest"
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+  strategy:
+    blueGreen:
+      activeService: rollouts-bluegreen-demo
+      previewService: rollouts-bluegreen-demo-preview
