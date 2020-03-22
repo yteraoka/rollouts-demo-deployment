@@ -6,7 +6,7 @@ spec:
   gateways:
   - rollouts-canary-demo-gw
   hosts:
-  - rollouts-canary-demo.apps.local
+  - rollouts-canary-demo.local.1q77.com
   http:
   - name: primary
     route:

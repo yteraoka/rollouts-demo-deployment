@@ -7,7 +7,7 @@ spec:
     istio: ingressgateway
   servers:
   - hosts:
-    - rollouts-canary-demo.apps.local
+    - rollouts-canary-demo.local.1q77.com
     port:
       name: http
       number: 80
